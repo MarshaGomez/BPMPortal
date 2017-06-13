@@ -1,0 +1,20 @@
+<div class="row border-bottom">
+    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <ul class="nav navbar-top-links navbar-right">
+            <li uib-dropdown>
+                <a class="count-info" href uib-dropdown-toggle>
+                    {{ 'LANGUAGE' | translate }}
+                </a>
+                <ul uib-dropdown-menu class="animated fadeInRight m-t-xs" ng-controller="translateCtrl">
+                    <li><a ng-click="changeLanguage('en')">{{ 'ENGLISH' | translate }}</a></li>
+                    <li><a ng-click="changeLanguage('es')">{{ 'SPANISH' | translate }}</a></li>
+                </ul>
+            </li>
+            <li>
+                <a ui-sref="login">
+                    <i class="fa fa-sign-out"></i> {{ 'LOGOUT' | translate }}
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

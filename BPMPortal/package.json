@@ -1,0 +1,20 @@
+{
+  "name": "bpmapp",
+  "version": "1.0.0",
+  "description": "Final Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mobile Dev Sistemas Galileo <moviledev.sistemasgalileo@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "helmet": "^0.10.0",
+    "jade": "^1.11.0",
+    "log4js": "^0.6.26",
+    "method-override": "^2.3.5",
+    "serve-favicon": "^2.3.0"
+  }
+}

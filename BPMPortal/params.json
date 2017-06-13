@@ -1,0 +1,14 @@
+{ 
+	"BPMPortal" : {
+		"language" : "es"
+	},
+    "log4js" : {
+    	"appenders": [
+	    	{ 
+	    		"type": "console", 
+	    		"category": "BPMPortal" 
+	    	}
+	  	],
+	  	"level" : "TRACE"
+  	}
+}	
