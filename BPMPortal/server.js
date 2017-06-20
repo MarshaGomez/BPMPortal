@@ -4,7 +4,7 @@
 
 var
   express = require('express'),
-  routes = require('./routes'),
+  routes = require('./lib/routes'),
   bodyParser = require('body-parser'),
   methodOverride = require('method-override'),
   favicon = require('serve-favicon'),
@@ -34,8 +34,11 @@ app.use(log4js.connectLogger(logger, {
   format: ':method :url :status :remote-addr :response-time ms'
 }));
 logger.setLevel(obj.log4js.level);
+
+
 // Creating global variables
 global.language = obj.BPMPortal.language;
+global.dbgateway = obj.BPMPortal.dbgateway;
 
 // Use Helmet
 app.use(helmet());
@@ -69,11 +72,11 @@ if (app.get('env') === 'production') {
   // TODO
 }
 
-app.get('/', routes.index);
+// app.get('/', routes.index);
 // redirect all others to the index (HTML5 history)
-app.get('*', routes.index);
+// app.get('*', routes.index);
 
-
+require('./lib/config/bpm.server.config')(app)
 
 /**
  * Start Server

@@ -9,13 +9,13 @@
  */
 function pageTitle($rootScope, $timeout) {
     return {
-        link: function(scope, element) {
-            var listener = function(event, toState, toParams, fromState, fromParams) {
+        link: function (scope, element) {
+            var listener = function (event, toState, toParams, fromState, fromParams) {
                 // Default title - load on Dashboard 1
                 var title = 'Galileo | Responsive Admin Theme';
                 // Create your own title pattern
                 if (toState.data && toState.data.pageTitle) title = 'Galileo | ' + toState.data.pageTitle;
-                $timeout(function() {
+                $timeout(function () {
                     element.text(title);
                 });
             };
@@ -30,9 +30,9 @@ function pageTitle($rootScope, $timeout) {
 function sideNavigation($timeout) {
     return {
         restrict: 'A',
-        link: function(scope, element) {
+        link: function (scope, element) {
             // Call the metsiMenu plugin and plug it to sidebar navigation
-            $timeout(function(){
+            $timeout(function () {
                 element.metisMenu();
             });
         }
@@ -106,7 +106,7 @@ function iboxToolsFullScreen($timeout) {
                 $('body').toggleClass('fullscreen-ibox-mode');
                 button.toggleClass('fa-expand').toggleClass('fa-compress');
                 ibox.toggleClass('fullscreen');
-                setTimeout(function() {
+                setTimeout(function () {
                     $(window).trigger('resize');
                 }, 100);
             }
@@ -120,7 +120,9 @@ function iboxToolsFullScreen($timeout) {
 function minimalizaSidebar($timeout) {
     return {
         restrict: 'A',
-        template: '<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="" ng-click="minimalize()"><i class="fa fa-bars"></i></a>',
+        template: "<button type='button' class='navbar-minimalize minimalize-styl-2 btn btn-primary fa fa-arrow-circle-left' ng-class='{&quot;fa-arrow-circle-right&quot;: liked, &quot;fa-arrow-circle-left&quot;: !liked}' ng-click='minimalize(); liked=!liked'></button>",
+
+        //template: '<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="" ng-click="minimalize()"><i class="fa fa-bars"></i></a>',
         controller: function ($scope, $element) {
             $scope.minimalize = function () {
                 $("body").toggleClass("mini-navbar");
@@ -132,7 +134,7 @@ function minimalizaSidebar($timeout) {
                         function () {
                             $('#side-menu').fadeIn(400);
                         }, 200);
-                } else if ($('body').hasClass('fixed-sidebar')){
+                } else if ($('body').hasClass('fixed-sidebar')) {
                     $('#side-menu').hide();
                     setTimeout(
                         function () {
@@ -145,7 +147,7 @@ function minimalizaSidebar($timeout) {
             }
         }
     };
-}
+};
 
 
 /**
