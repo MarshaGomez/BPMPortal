@@ -7,7 +7,7 @@
  *
  */
 function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
-    $urlRouterProvider.otherwise("/index/main");
+    $urlRouterProvider.otherwise("/login");
 
     $ocLazyLoadProvider.config({
         // Set to true if you want to see what and when is dynamically loaded
@@ -23,18 +23,55 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         .state('index.home', {
             url: "/home",
             templateUrl: "views/home.html",
-            data: { pageTitle: 'Home page' }
+            data: {
+                pageTitle: 'Home page'
+            }
         })
         .state('index.main', {
             url: "/main",
             templateUrl: "views/main.html",
-            data: { pageTitle: 'Main Page' }
+            data: {
+                pageTitle: 'Main Page'
+            }
+        })
+        .state('404*', {
+            url: "/404",
+            templateUrl: "views/error404.html",
+            data: {
+                pageTitle: 'Error 404'
+            }
+        })
+        .state('500', {
+            url: "/500",
+            templateUrl: "views/error500.html",
+            data: {
+                pageTitle: 'Error 500'
+            }
+        })
+        .state('login', {
+            url: "/login",
+            templateUrl: "views/login.html",
+            data: {
+                pageTitle: 'Login',
+                specialClass: 'login-bg'
+            },
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                            files: ['css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css']
+                        },
+                        {
+                            name: 'cgNotify',
+                            files: ['css/plugins/angular-notify/angular-notify.min.css', 'js/plugins/angular-notify/angular-notify.min.js']
+                        }
+                    ]);
+                }
+            }
         });
-
 }
 angular
     .module('BPMPortal')
     .config(config)
-    .run(function($rootScope, $state) {
+    .run(function ($rootScope, $state) {
         $rootScope.$state = $state;
     });

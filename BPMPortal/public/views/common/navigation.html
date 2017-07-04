@@ -1,12 +1,20 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse" full-scroll>
         <ul side-navigation class="nav metismenu" id="side-menu">
-            <li>
-                <div class="pull-right">
-                    <strong><span minimaliza-sidebar></span></strong>
-                </div>
 
+           
+            <li ui-sref-active="active">
+                <a ui-sref="index.home"><i class="fa fa-list-ol"></i> <span class="nav-label">{{ 'TODO' | translate }}</span> </a>
             </li>
+
+            <li ui-sref-active="active">
+                <a ui-sref="index.home"><i class="fa fa-edit"></i> <span class="nav-label">{{ 'MYTASK' | translate }}</span> </a>
+            </li>
+
+            <li ui-sref-active="active">
+                <a ui-sref="index.home"><i class="fa fa-check-square-o"></i> <span class="nav-label">{{ 'DONETASK' | translate }}</span> </a>
+            </li>
+
         </ul>
 
     </div>

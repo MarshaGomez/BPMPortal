@@ -53,37 +53,49 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/params', function(req, res) {
-    res.send({
-        language: global.language
-    });
+app.get('/params', function (req, res) {
+  res.send({
+    language: global.language
+  });
 });
 
 // development only
 if (app.get('env') === 'development') {
-  // TODO
+
 }
 // testing only
 if (app.get('env') === 'testing') {
-  // TODO
 }
 // production only
 if (app.get('env') === 'production') {
-  // TODO
 }
 
 // app.get('/', routes.index);
-// redirect all others to the index (HTML5 history)
-// app.get('*', routes.index);
+// redirect all others to the index (HTML5 history) 
+
+//app.get('*', routes.index);
+
+/*app.get('*', function(req, res){
+  res.send('/404');
+});*/
+
+app.use(function(req, res, next) {
+ // res.status(404).render('index');
+  //res.sendFile(__dirname + '/public/views/error404.html');
+});
+
 
 require('./lib/config/bpm.server.config')(app)
+
+//Redirect 
 
 /**
  * Start Server
  */
 var http = require('http').Server(app);
 
-http.listen(app.get('port'), function() {
+
+http.listen(app.get('port'), function () {
   logger.info('App Server listening on port ' + app.get('port'));
 });
 

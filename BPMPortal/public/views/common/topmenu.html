@@ -1,32 +1,32 @@
-<div class="row" ng-controller="tabMenuCtrl"> 
+<div class="row" ng-controller="tabMenuCtrl">
     <div class="col-lg-12">
         <div class="tabs-container">
             <uib-tabset>
-                <uib-tab>
+                <uib-tab ng-click="getInclude(1)">
                     <uib-tab-heading>
-                        This is tab
+                        Tab 1 {{tabPage}}
                     </uib-tab-heading>
                     <div class="panel-body">
                         <!-- Tab01 -->
-                        <div ng-include="'views/common/Tab01.html'"></div>
+                        <div ng-include="'{{tabPage}}'"></div>
                     </div>
                 </uib-tab>
-                <uib-tab>
+                <uib-tab ng-click="getInclude(2)">
                     <uib-tab-heading>
-                        This is tab
+                        Tab 2 {{tabPage}}
                     </uib-tab-heading>
                     <div class="panel-body">
                         <!-- Tab02 -->
-                        <div ng-include="'views/common/Tab02.html'"></div>
+                        <div ng-include="'{{tabPage}}'"></div>
                     </div>
                 </uib-tab>
-                <uib-tab>
+                <uib-tab ng-click="getInclude(3)">
                     <uib-tab-heading>
-                        This is tab
+                        {{'MAINTENANCE' | translate}}
                     </uib-tab-heading>
                     <div class="panel-body">
                         <!-- Tab03 -->
-                        <div ng-include="'views/common/Tab03.html'"></div>
+                        <div ng-include="'{{tabPage}}'"></div>
                     </div>
                 </uib-tab>
             </uib-tabset>

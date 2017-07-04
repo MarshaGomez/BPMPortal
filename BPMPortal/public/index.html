@@ -24,7 +24,7 @@
 <!-- ControllerAs syntax -->
 <!-- Main controller with serveral data used in BPMPortal theme on diferent view -->
 
-<body ng-controller="mainCtrl as main">
+<body ng-controller="mainCtrl as main" class="{{$state.current.data.specialClass}}" landing-scrollspy id="page-top">
 
     <!-- Main view  -->
     <div ui-view></div>
@@ -61,10 +61,12 @@
 
 
     <!-- Services -->
+    <script src="js/services/loginService.js"></script>
     <script src="js/services/paramsService.js"></script>
     <script src="js/services/taskService.js"></script>
 
     <!-- Controllers -->
+    <script src="js/controllers/loginCtrl.js"></script>
     <script src="js/controllers/mainCtrl.js"></script>
     <script src="js/controllers/tabMenuCtrl.js"></script>
     <script src="js/controllers/taskCtrl.js"></script>

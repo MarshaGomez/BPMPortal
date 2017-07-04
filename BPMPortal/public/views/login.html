@@ -1,0 +1,63 @@
+<!--*********************************************
+* Login.html - view 
+**********************************************-->
+
+<!-- Main Title -->
+<!--  <div class="animated fadeInDown" ng-controller="loginCtrl"> -->
+ <div class="animated fadeInDown" ng-controller="loginCtrl">
+    <div class="col-lg-12">
+        <div class="col-lg-6">
+            <div class="over-box">
+                <div class="boxer">
+                    <img class="logo-image" relative-src="../img/logo300TCR.png" src="../img/logo300TCR.png">
+                    <div class="top-boxer pull-right">
+                        <a class="dimmer-cancel-link" href="#">{{'CANCEL' | translate}}   </a>
+                        <spam>   |   </spam>
+                        <a class="dimmer-signup-link" href="#">   {{'ACCOUNT_M3' | translate}}</a>
+                    </div>
+                    <!--Close top-boxer -->
+                </div>
+                <!--Close boxer -->
+            </div>
+            <!--Close over-box -->
+            <div class="signinup-default">
+                <div class="box-default">
+                    <h1>{{'LOGIN' | translate}}</h1>
+                    <form class="m-t" role="form">
+                        <div class="form-group">
+                            <input type="text" name="userName" ng-model="userName" class="form-control form-login" placeholder="{{'USERNAME' | translate}}" required="">
+                        </div>
+                        <!--Close form-group -->
+                        <div class="form-group">
+                            <input type="password" name="password" ng-model="password" class="form-control form-login" placeholder="{{'PASSWORD' | translate}}" required="">
+                        </div>
+                        <!--Close form-group -->
+                        <div class="checkbox checkbox-circle" style="padding: 0px 0px 0px 20px; text-align: left;">
+                            <input id="checkbox" type="checkbox">
+                            <label for="checkbox">{{'REMINDER' | translate}}</label>
+                        </div>
+                        <!--Close checkbox checkbox-circle -->
+                        <button type="submit" ng-click="getAuth(userName, password)" value="Log In" class="btn btn-primary block" style="aling=center;">{{'LOGIN' | translate}}</button>
+                        <a ui-sref="forgot_password"><small></small></a>
+                        <p class="text-muted text-center"><small>{{'ACCOUNT_M1' | translate}}</small></p>
+                        <a class="btn btn-sm btn-white btn-block" style="border-radius: 5px;" ui-sref="register">{{'ACCOUNT_M2' | translate}}</a>
+                    </form>
+                    <!--Close m-t -->
+                    <p class="m-t"> <small>{{'COPYRIGHT' | translate}} &copy; </small> </p>
+                </div>
+                <!-- box-default -->
+            </div>
+            <!-- Close signinup-default -->
+        </div>
+        <!-- Close col-lg-6 -->
+        <div class="col-lg-6">
+            <img class="login-image image-hide" relative-src="../img/login-image.png" src="../img/login-image.png">
+        </div>
+        <!-- Close col-lg-6 -->
+    </div>
+    <!-- Close col-lg-12 -->
+</div>
+<!-- animated fadeInDown -->
+
+
+
