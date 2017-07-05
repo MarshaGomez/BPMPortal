@@ -2,21 +2,21 @@
  * taskCtrl - controller
  */
 function taskCtrl($scope, taskService) {
-    start();
+    start()
 
     function start() {
-        $scope.controversyList = null;
+        $scope.controversyList = null
     }
 
     function getTask(messageType) {
         taskService.getTask().then(function (result) {
-            $scope.controversyList = result.data;
+            $scope.controversyList = result.data
         })
-        getDocumentID(messageType);
+        getDocumentID(messageType)
     }
 
 }
 
 angular
     .module('BPMPortal')
-    .controller('taskCtrl', taskCtrl);
+    .controller('taskCtrl', taskCtrl)

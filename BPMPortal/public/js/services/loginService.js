@@ -3,7 +3,7 @@
 **********************************************/
 
 function loginService($http) {
-    this.getAuth = getAuth;
+    this.getAuth = getAuth
 
     function getAuth(ref) {
         return $http({
@@ -11,10 +11,10 @@ function loginService($http) {
             url: '/api/login',
             data: ref,
             headers: { 'Content-Type': 'application/json'}
-        });
+        })
     }
 }
 
 angular
     .module('BPMPortal')
-    .service('loginService', loginService);
+    .service('loginService', loginService)

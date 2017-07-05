@@ -54,10 +54,10 @@ function config($translateProvider) {
             ACCOUNT_M3: 'Crear cuenta',
             //Footer
             COPYRIGHT: 'Todos los Derechos Reservados Sistemas Galileo del Sur S.A 2017',
-        });
-    $translateProvider.preferredLanguage('es');
+        })
+    $translateProvider.preferredLanguage('es')
 }
 
 angular
     .module('BPMPortal')
-    .config(config);
+    .config(config)

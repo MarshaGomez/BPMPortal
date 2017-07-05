@@ -2,7 +2,7 @@
  * mainCtrl - controller
  */
 function mainCtrl($scope) {
-    start();
+    start()
 
     function start(){
         
@@ -13,4 +13,4 @@ function mainCtrl($scope) {
 
 angular
     .module('BPMPortal')
-    .controller('mainCtrl', mainCtrl);
+    .controller('mainCtrl', mainCtrl)

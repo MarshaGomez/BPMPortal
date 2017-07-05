@@ -7,12 +7,12 @@
  *
  */
 function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
-    $urlRouterProvider.otherwise("/login");
+    $urlRouterProvider.otherwise("/login")
 
     $ocLazyLoadProvider.config({
         // Set to true if you want to see what and when is dynamically loaded
         debug: false
-    });
+    })
 
     $stateProvider
         .state('index', {
@@ -64,14 +64,14 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                             name: 'cgNotify',
                             files: ['css/plugins/angular-notify/angular-notify.min.css', 'js/plugins/angular-notify/angular-notify.min.js']
                         }
-                    ]);
+                    ])
                 }
             }
-        });
+        })
 }
 angular
     .module('BPMPortal')
     .config(config)
     .run(function ($rootScope, $state) {
-        $rootScope.$state = $state;
-    });
+        $rootScope.$state = $state
+    })
