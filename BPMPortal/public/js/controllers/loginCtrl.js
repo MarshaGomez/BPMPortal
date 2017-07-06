@@ -1,21 +1,24 @@
 /***********************************************
-* LoginCtrl.js - controller 
-**********************************************/
+ * LoginCtrl.js - controller 
+ **********************************************/
 
 'use strict'
 
-function loginCtrl($scope, loginService, notify, $window, $translate) {
+function loginCtrl($scope, loginService, notify, $window, $translate, $localStorage) {
     start()
 
     /***********************************************
-    * public functions
-    **********************************************/
+     * public functions
+     **********************************************/
 
     function start() {
         $scope.userName = null
         $scope.password = null
         $scope.generalNotify = generalNotify
-        $scope.getAuth       = getAuth
+        $scope.getAuth = getAuth
+        $scope.showLoginBtn = true
+        $scope.showSpinner = false
+        $scope.disableInputs = false
     }
 
     /***********************************************
@@ -23,7 +26,7 @@ function loginCtrl($scope, loginService, notify, $window, $translate) {
      **********************************************/
 
     notify.config({
-       duration: '5000'
+        duration: '5000'
     })
 
     //Classes: alert-info, alert-success, alert-warning, alert-danger
@@ -37,13 +40,13 @@ function loginCtrl($scope, loginService, notify, $window, $translate) {
 
     function getAuth(userName, password) {
         var data = {
-            "userName" : userName,
-            "password" : password
+            "userName": userName,
+            "password": password
         }
 
-        loginService.getAuth(data).then(function(result) {
-            
-            if (!result.data){
+        loginService.getAuth(data).then(function (result) {
+
+            if (!result.data) {
                 $window.location.href = '/#/index/chargeback'
             } else {
                 generalNotify($translate.instant("LOGIN_M1"), 'alert-danger')

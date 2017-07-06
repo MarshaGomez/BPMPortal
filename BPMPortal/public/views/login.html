@@ -26,12 +26,12 @@
                     <form class="m-t" role="form">
                         <div class="form-group">
                             <input type="text" name="userName" ng-model="userName" class="form-control form-login" placeholder="{{'USERNAME' | translate}}"
-                                required="">
+                                required="" ng-disabled="disableInputs">
                         </div>
                         <!--Close form-group -->
                         <div class="form-group">
                             <input type="password" name="password" ng-model="password" class="form-control form-login" placeholder="{{'PASSWORD' | translate}}"
-                                required="">
+                                required="" ng-disabled="disableInputs">
                         </div>
                         <!--Close form-group -->
                         <div class="checkbox checkbox-circle" style="padding: 0px 0px 0px 20px; text-align: left;">
@@ -39,8 +39,14 @@
                             <label for="checkbox">{{'REMINDER' | translate}}</label>
                         </div>
                         <!--Close checkbox checkbox-circle -->
-                        <button type="submit" ng-click="getAuth(userName, password)" value="Log In" class="btn btn-primary block" style="align-content:center;">{{'LOGIN' | translate}}</button>
-                        
+                        <button type="submit" ng-click="getAuth(userName, password)" value="Log In" class="btn btn-primary block" ng-show=showLoginBtn>{{'LOGIN' | translate}}</button>
+                        <div class="spiner-example" ng-show="showSpinner">
+                            <div class="sk-spinner sk-spinner-three-bounce">
+                                <div class="sk-bounce1"></div>
+                                <div class="sk-bounce2"></div>
+                                <div class="sk-bounce3"></div>
+                            </div>
+                        </div>
                         <a ui-sref="forgot_password"><small></small></a>
                         <p class="text-muted text-center"><small>{{'ACCOUNT_M1' | translate}}</small></p>
                         <a class="btn btn-sm btn-white btn-block" style="border-radius: 5px;" ui-sref="register">{{'ACCOUNT_M2' | translate}}</a>
